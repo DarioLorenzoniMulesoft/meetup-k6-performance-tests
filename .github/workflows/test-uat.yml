@@ -1,0 +1,13 @@
+name: uat performance test
+on: [workflow_dispatch]
+jobs:
+  build:
+    name: Run k6 test
+    runs-on: self-hosted
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Run k6 test
+        uses: grafana/k6-action@v0.3.1
+        with:
+          filename: test.js
